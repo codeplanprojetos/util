@@ -7,11 +7,11 @@ library(survey)
 # Declarar o plano amostral da PDAD 2013 ####
 
 # Carregar base de domicílios - PDAD 2013
-pdad_dom_2013 <- fread("/u02/u36072/PDAD/pdad_plano_amostral/PDAD_DOM_2013.csv",
+pdad_dom_2013 <- fread("https://raw.githubusercontent.com/codeplanprojetos/util/master/PDAD/2013/PDAD_DOM_2013.csv",
                        dec = ",", encoding = "Latin-1")
 
 # Carregar base de pessoas - PDAD 2013
-pdad_pes_2013 <- fread("/u02/u36072/PDAD/pdad_plano_amostral/PDAD_PES_2013.csv",
+pdad_pes_2013 <- fread("https://raw.githubusercontent.com/codeplanprojetos/util/master/PDAD/2013/PDAD_PES_2013.csv",
                        dec = ",", encoding = "Latin-1")
 
 # Unir informações de pessoas e domicílios
@@ -54,11 +54,11 @@ svyby(~count,~TP_MOR_SEXO,svy,svytotal) # 1.338.352 homens, 1.448.332 mulheres.
 # Declarar o plano amostral da PDAD 2015 ####
 
 # Carregar a base de domicílios
-pdad_dom_2015 <- fread("/u02/u36072/PDAD/pdad_plano_amostral/PDAD_DOM_2015.csv",
+pdad_dom_2015 <- fread("https://raw.githubusercontent.com/codeplanprojetos/util/master/PDAD/2015/PDAD_DOM_2015.csv",
                        dec = ",", encoding = "Latin-1")
 
 # Carregar base de pessoas - PDAD 2015
-pdad_pes_2015 <- fread("/u02/u36072/PDAD/pdad_plano_amostral/PDAD_PES_2015.csv",
+pdad_pes_2015 <- fread("https://raw.githubusercontent.com/codeplanprojetos/util/master/PDAD/2015/PDAD_PES_2015.csv",
                        dec = ",", encoding = "Latin-1")
 
 # Unir informações de pessoas aos parâmetros do plano amostral
