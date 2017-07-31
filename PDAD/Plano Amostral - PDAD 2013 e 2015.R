@@ -1,8 +1,15 @@
 rm(list = ls())
 gc()
 
+packages <- c("data.table", "survey")
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())))  
+}
+
 library(data.table)
 library(survey)
+
+
 
 # Declarar o plano amostral da PDAD 2013 ####
 
@@ -39,16 +46,16 @@ post.pop<-unique(subset(pdad_2013,select=c(POPULACAO_AJUSTADA)))
 post.pop$Freq <- post.pop$POPULACAO_AJUSTADA
 
 # Declarar o objeto de pós-estrato
-svy <- postStratify(sample.pdad2013,~POPULACAO_AJUSTADA,post.pop)
+svy2013 <- postStratify(sample.pdad2013,~POPULACAO_AJUSTADA,post.pop)
 
 # Ajusta estratos com apenas uma UPA (adjust=centered)
 options( survey.lonely.psu = "adjust")
 
 # Verificar total da população
-svytotal(~count,svy) # 2.786.684.
+svytotal(~count,svy2013) # 2.786.684.
 
 # Verificar total da população por sexo
-svyby(~count,~TP_MOR_SEXO,svy,svytotal) # 1.338.352 homens, 1.448.332 mulheres.
+svyby(~count,~TP_MOR_SEXO,svy2013,svytotal) # 1.338.352 homens, 1.448.332 mulheres.
 
 
 # Declarar o plano amostral da PDAD 2015 ####
@@ -86,16 +93,16 @@ post.pop<-unique(subset(pdad_pes_2015,select=c(POPULACAO_AJUSTADA)))
 post.pop$Freq <- post.pop$POPULACAO_AJUSTADA
 
 # Declarar o objeto de pós-estrato
-svy <- postStratify(sample.pdad2015,~POPULACAO_AJUSTADA,post.pop)
+svy2015 <- postStratify(sample.pdad2015,~POPULACAO_AJUSTADA,post.pop)
 
 # Ajusta estratos com apenas uma UPA (adjust=centered)
 options( survey.lonely.psu = "adjust")
 
 # Verificar total da população
-svytotal(~count,svy) # 2.906.855.
+svytotal(~count,svy2015) # 2.906.855.
 
 # Verificar total da população por sexo
-svyby(~count,~D04_MOR_SEXO,svy,svytotal) # 1.391.640 homens, 1.515.215  mulheres.
+svyby(~count,~D04_MOR_SEXO,svy2015,svytotal) # 1.391.640 homens, 1.515.215  mulheres.
 
 # rm(list = ls())
 # gc()
