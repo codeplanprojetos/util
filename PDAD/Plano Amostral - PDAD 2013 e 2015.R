@@ -97,5 +97,5 @@ svytotal(~count,svy) # 2.906.855.
 # Verificar total da população por sexo
 svyby(~count,~D04_MOR_SEXO,svy,svytotal) # 1.391.640 homens, 1.515.215  mulheres.
 
-rm(list = ls())
-gc()
+# rm(list = ls())
+# gc()
