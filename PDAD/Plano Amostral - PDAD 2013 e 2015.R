@@ -13,7 +13,7 @@ if(length(new.packages)) install.packages(new.packages)
 library(data.table)
 library(survey)
 
-# Remover os objetos
+# Remover os objetos desnecessários
 rm(list.of.packages,new.packages)
 
 # Declarar o plano amostral da PDAD 2013 ####
@@ -61,7 +61,6 @@ svytotal(~count,svy2013) # 2.786.684.
 
 # Verificar total da população por sexo
 svyby(~count,~TP_MOR_SEXO,svy2013,svytotal) # 1.338.352 homens, 1.448.332 mulheres.
-
 
 # Declarar o plano amostral da PDAD 2015 ####
 
