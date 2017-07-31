@@ -1,15 +1,14 @@
 rm(list = ls())
 gc()
 
-packages <- c("data.table", "survey")
-if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
-  install.packages(setdiff(packages, rownames(installed.packages())))  
-}
+list.of.packages <- c("data.table", "survey")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
 library(data.table)
 library(survey)
 
-
+install.packages()
 
 # Declarar o plano amostral da PDAD 2013 ####
 
